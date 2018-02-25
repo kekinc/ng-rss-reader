@@ -1,0 +1,33 @@
+<categories (buttonClicked)="onButtonClick($event)"></categories>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Website</th>
+            <th>Follow</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let feed of selectedFeeds">
+            
+                <tr>
+                    <td>{{ feed.title }}</td>
+                    <td>{{ feed.category }}</td>
+                    <td>{{ feed.description }}</td>
+                    <td><a [attr.href]="feed.link">Visit</a></td>
+                    <td><a class="btn btn-primary" href="posts">Follow</a></td>
+                </tr>
+            
+        </ng-container>
+        <ng-container *ngIf="selectedFeeds.length == 0">
+            <tr>
+                <td colspan="5">
+                    <span class="text-center">No feeds found</span>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
